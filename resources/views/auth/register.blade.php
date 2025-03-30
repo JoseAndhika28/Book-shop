@@ -14,11 +14,11 @@
         <div class="flex justify-center">
             <div class="w-1/3">
                 <h1 class="text-4xl font-bold mb-5 text-center">Registrasi Akun</h1>
-                <form action="{{ route('register') }}" method="POST">
+                <form action="{{ route('create') }}" method="POST">
                     @csrf
                     <div class="mb-4">
                         <input type="text" name="email" id="email"
-                            class="form-input mt-1 block w-full h-12 p-6 rounded-lg border @error('email') border-2 border-red-700 @enderror"
+                            class="form-input mt-1 block w-full h-12 p-6 rounded-lg @error('email') border-2 border-red-700 @enderror"
                             placeholder="Email" required value="{{ old('email') }}">
                         @if ($errors->has('email'))
                             <span class="invalid-feedback">
@@ -27,18 +27,18 @@
                         @endif
                     </div>
                     <div class="mb-4">
-                        <input type="text" name="username" id="username"
-                            class="form-input mt-1 block w-full h-12 p-6 rounded-lg border @error('username') border-2 border-red-700 @enderror"
-                            placeholder="Nama Lengkap" required value="{{ old('username') }}">
-                        @if ($errors->has('username'))
+                        <input type="text" name="name" id="name"
+                            class="form-input mt-1 block w-full h-12 p-6 rounded-lg @error('name') border-2 border-red-700 @enderror"
+                            placeholder="Nama Lengkap" required value="{{ old('name') }}">
+                        @if ($errors->has('name'))
                             <span class="invalid-feedback">
-                                <p>{{ $errors->first('username') }}</p>
+                                <p>{{ $errors->first('name') }}</p>
                             </span>
                         @endif
                     </div>
                     <div class="mb-4">
                         <input type="password" name="password" id="password"
-                            class="form-input mt-1 block w-full h-12 p-6 rounded-lg border @error('password') border-2 border-red-700 @enderror"
+                            class="form-input mt-1 block w-full h-12 p-6 rounded-lg @error('password') border-2 border-red-700 @enderror"
                             placeholder="Password" required value="{{ old('password') }}">
                         @if ($errors->has('password'))
                             <span class="invalid-feedback">
