@@ -18,7 +18,7 @@
                     @csrf
                     <div class="mb-4">
                         <input type="text" name="email" id="email"
-                            class="form-input mt-1 block w-full h-12 p-6 rounded-lg @error('email') border-2 border-red-700 @enderror"
+                            class="form-input border border-gray-500 mt-1 block w-full h-12 p-6 rounded-lg @error('email') border-2 border-red-700 @enderror"
                             placeholder="Email" required value="{{ old('email') }}">
                         @if ($errors->has('email'))
                             <span class="invalid-feedback">
@@ -29,7 +29,7 @@
                     <div class="mb-4">
                         {{-- Sebenarnya masalahnya disini, seharusnya jangan username tapi name. Karna di BE dia ngevalidaasi request yang namanya name bukan username --}}
                         <input type="text" name="name" id="name"
-                            class="form-input mt-1 block w-full h-12 p-6 rounded-lg @error('name') border-2 border-red-700 @enderror"
+                            class="form-input border border-gray-500 mt-1 block w-full h-12 p-6 rounded-lg @error('name') border-2 border-red-700 @enderror"
                             placeholder="Nama Lengkap" required value="{{ old('name') }}">
                         @if ($errors->has('name'))
                             <span class="invalid-feedback">
@@ -39,7 +39,7 @@
                     </div>
                     <div class="mb-4">
                         <input type="password" name="password" id="password"
-                            class="form-input mt-1 block w-full h-12 p-6 rounded-lg @error('password') border-2 border-red-700 @enderror"
+                            class="form-input border border-gray-500 mt-1 block w-full h-12 p-6 rounded-lg @error('password') border-2 border-red-700 @enderror"
                             placeholder="Password" required value="{{ old('password') }}">
                         @if ($errors->has('password'))
                             <span class="invalid-feedback">

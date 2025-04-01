@@ -43,6 +43,8 @@ class RegisterController extends Controller
 
             // Redirect ke halaman login dengan pesan sukses
             Log::info('User registered successfully: ' . $request->email);
+             //Notifikasi berhasil
+            $request->session()->flash('success', 'Registrasi berhasil! Silakan login.');
             return redirect(route('login'))->with('success', 'Registrasi berhasil! Silakan login.');
         } catch (\Throwable $e) {
             // Redirect ke halaman register dengan pesan error
