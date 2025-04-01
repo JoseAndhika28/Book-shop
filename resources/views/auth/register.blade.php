@@ -14,7 +14,7 @@
         <div class="flex justify-center">
             <div class="w-1/3">
                 <h1 class="text-4xl font-bold mb-5 text-center">Registrasi Akun</h1>
-                <form action="{{ route('create') }}" method="POST"> // nama route diperhatiin lagi seharusnya create. bisa cek di web.php
+                <form action="{{ route('create') }}" method="POST"> {{--nama route diperhatiin lagi seharusnya create. bisa cek di web.php--}}
                     @csrf
                     <div class="mb-4">
                         <input type="text" name="email" id="email"
@@ -27,7 +27,7 @@
                         @endif
                     </div>
                     <div class="mb-4">
-                        // Sebenarnya masalahnya disini, seharusnya jangan username tapi name. Karna di BE dia ngevalidaasi request yang namanya name bukan username
+                        {{-- Sebenarnya masalahnya disini, seharusnya jangan username tapi name. Karna di BE dia ngevalidaasi request yang namanya name bukan username --}}
                         <input type="text" name="name" id="name"
                             class="form-input mt-1 block w-full h-12 p-6 rounded-lg @error('name') border-2 border-red-700 @enderror"
                             placeholder="Nama Lengkap" required value="{{ old('name') }}">
