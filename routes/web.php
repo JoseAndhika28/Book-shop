@@ -20,7 +20,7 @@ Route::post('/register', [RegisterController::class, 'store'])->name('create'); 
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 //Dashboard Route
-Route::get('/dashboard', [DashboardController::class, 'index']);
-
+// Route::get('/dashboard', [DashboardController::class, 'index']); // Perhatikan route anda🙏🏻 .. Nyambung ke Controller mana dan fungsi mana
+Route::get('/dashboard', [BookController::class, 'index']);
 //Book Routes
 Route::resource('books', BookController::class);

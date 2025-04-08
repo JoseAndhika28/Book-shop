@@ -18,15 +18,15 @@
         <section>
             <div class="max-w-6xl mx-auto p-6">
                 <h1 class="text-2xl font-bold mb-4">Daftar Buku</h1>
-                
+
                 <a href="{{ route('books.create') }}" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded shadow">Tambah Buku</a>
-                
+
                 @if(session('success'))
                     <div class="bg-green-100 text-green-700 p-3 my-4 rounded">
                         {{ session('success') }}
                     </div>
                 @endif
-                
+
                 <div class="overflow-x-auto mt-4">
                     <table class="w-full border-collapse border border-gray-300">
                         <thead>
@@ -45,7 +45,7 @@
                                     <td class="px-4 py-2">{{ $book->stock }}</td>
                                     <td class="px-4 py-2">
                                         <a href="{{ route('books.edit', $book->id) }}" class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded">Edit</a>
-                                        
+
                                         <form action="{{ route('books.destroy', $book->id) }}" method="POST" class="inline-block">
                                             @csrf
                                             @method('DELETE')
