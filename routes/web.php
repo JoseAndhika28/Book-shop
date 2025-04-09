@@ -6,6 +6,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\BookController;
 use App\Http\Middleware\AdminMiddleware;
+use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -32,7 +33,10 @@ Route::get('/dashboard', [BookController::class, 'index'])->name('admin.dashboar
 //Book Routes
 Route::get('/books/create', [BookController::class, 'create'])->name('books.create');
 Route::post('/books', [BookController::class, 'store'])->name('books.store');
-Route::get('/books/{book}/edit', [BookController::class, 'edit'])->name('books.edit'); 
-Route::put('/books/{book}', [BookController::class, 'update'])->name('books.update');
+Route::get('/books/edit/{id}', [BookController::class, 'edit'])->name('books.edit');
+Route::put('/books/{id}', [BookController::class, 'update'])->name('books.update');
 Route::delete('/books/{book}', [BookController::class, 'destroy'])->name('books.destroy');
 Route::get('/books/{book}', [BookController::class, 'show'])->name('books.show'); // Route untuk menampilkan detail buku
+
+//User Routes
+Route::get('/home', [HomeController::class, 'home'])->name('home'); // Route untuk menampilkan halaman home

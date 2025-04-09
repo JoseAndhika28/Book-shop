@@ -21,7 +21,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('admin.create');
+        return view('books.create');
     }
 
     /**
@@ -56,32 +56,40 @@ class BookController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Book $book)
+    public function edit($id)
     {
+        $book = Book::findOrFail($id);
         return view('books.edit', compact('book'));
     }
+    
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Book $book)
+    public function update(Request $request, string $id)    
     {
+        $book = Book::findOrFail($id);
+    
+        // Validate the request data
+
         $data = $request->validate([
             'title' => 'required|max:255',
             'author' => 'required|max:255',
             'publisher' => 'required|max:255',
             'price' => 'required|numeric',
-            'cover_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'cover_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-
+    
         if ($request->hasFile('cover_image')) {
             $data['cover_image'] = $request->file('cover_image')->store('cover_images', 'public');
         }
-
-        $book->update($request->all());
-        return redirect()->route('admin.dashboard')->with('success', 'Book updated successfully.');
+    
+        $book->update($data);
+    
+        return redirect()->route('admin.dashboard', $book->id)->with('success', 'Book updated successfully.');
     }
-
+    
+    
     /**
      * Remove the specified resource from storage.
      */
