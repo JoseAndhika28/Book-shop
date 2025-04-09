@@ -21,7 +21,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('books.create');
+        return view('admin.create');
     }
 
     /**
@@ -29,7 +29,7 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'title' => 'required|max:255',
             'author' => 'required|max:255',
             'publisher' => 'required|max:255',
@@ -37,7 +37,11 @@ class BookController extends Controller
             'cover_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        Book::create($request->all());
+        if ($request->hasFile('cover_image')) {
+            $data['cover_image'] = $request->file('cover_image')->store('cover_images', 'public');
+        }
+
+        Book::create($data);
         return redirect()->route('admin.dashboard')->with('success', 'Book created successfully.');
     }
 
@@ -62,13 +66,17 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        $request->validate([
+        $data = $request->validate([
             'title' => 'required|max:255',
             'author' => 'required|max:255',
             'publisher' => 'required|max:255',
             'price' => 'required|numeric',
             'cover_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        if ($request->hasFile('cover_image')) {
+            $data['cover_image'] = $request->file('cover_image')->store('cover_images', 'public');
+        }
 
         $book->update($request->all());
         return redirect()->route('admin.dashboard')->with('success', 'Book updated successfully.');

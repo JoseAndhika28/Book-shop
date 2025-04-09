@@ -46,11 +46,11 @@
         <div class="mb-4">
             <label for="cover_image" class="block text-sm font-semibold">Gambar Sampul</label>
             <input type="file" name="cover_image" id="cover_image"
-                class="w-full border border-gray-300 rounded px-4 py-2 mt-1">
+                class="w-48 border border-gray-300 rounded px-4 py-2 mt-1 hover:border-gray-400">
         </div>
 
         <div class="flex items-center justify-between">
-            <a href="{{ route('books.index') }}" class="text-blue-600 hover:underline">← Kembali</a>
+            <a href="{{ route('admin.dashboard') }}" class="text-blue-600 hover:underline">← Kembali</a>
             <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded">
                 Simpan
             </button>

@@ -51,7 +51,7 @@
                         <button type="submit"
                             class="bg-blue-500 hover:bg-blue-700 text-white flex items-center justify-center font-bold w-full h-10 p-5 mt-5 rounded-lg">Login</button>
                         <p class="text-sm mt-2">Belum memiliki akun? <a class="text-blue-400 hover:text-blue-500"
-                                href="register">Daftar</a></p>
+                                href="{{route('create')}}">Daftar</a></p>
                     </div>
                 </form>
             </div>

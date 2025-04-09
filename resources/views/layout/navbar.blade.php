@@ -16,7 +16,7 @@
 
         <!-- Menu -->
         <ul class="flex space-x-6 justify-center items-center">
-          <li><a href="home.html" class="hover:text-gray-300">Dashboard</a></li>
+          <li><a href="{{ route('admin.dashboard') }}" class="hover:text-gray-300">Dashboard</a></li>
           <li class="bg-red-500 px-3 py-1 rounded-2xl hover:bg-red-600"><form action="{{ route('logout') }}" method="POST">
             @csrf
             <button type="submit" class="text-md text-white">Logout</button>
