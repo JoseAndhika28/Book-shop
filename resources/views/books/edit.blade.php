@@ -39,6 +39,26 @@
         </div>
 
         <div class="mb-4">
+            <label for="category_id" class="block text-sm font-semibold">Pilih Kategori</label>
+            <select name="category_id" id="category_id"
+                class="w-full border border-gray-300 rounded px-4 py-2 mt-1" required>
+                <option value="">-- Pilih Kategori --</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}" {{ old('category_id', $book->category_id) == $category->id ? 'selected' : '' }}>
+                        {{ $category->name_category }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="mb-4">
+            <label for="stock" class="block text-sm font-semibold">Stok</label>
+            <input type="number" name="stock" id="stock" value="{{ old('stock', $book->stock) }}"
+                class="w-full border border-gray-300 rounded px-4 py-2 mt-1" required>
+        </div>
+        
+
+        <div class="mb-4">
             <label for="price" class="block text-sm font-semibold">Harga</label>
             <input type="number" name="price" id="price" value="{{ old('price', $book->price) }}"
                 class="w-full border border-gray-300 rounded px-4 py-2 mt-1" required>

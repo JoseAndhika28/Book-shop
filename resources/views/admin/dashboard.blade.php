@@ -33,6 +33,8 @@
                             <tr class="bg-gray-200">
                                 <th class="border border-gray-300 px-4 py-2">Cover</th>
                                 <th class="border border-gray-300 px-4 py-2">Nama</th>
+                                <th class="border border-gray-300 px-4 py-2">Kategori</th>
+                                <th class="border border-gray-300 px-4 py-2">Stok</th>
                                 <th class="border border-gray-300 px-4 py-2">Harga</th>
                                 <th class="border border-gray-300 px-4 py-2">Penulis</th>
                                 <th class="border border-gray-300 px-4 py-2">Aksi</th>
@@ -45,6 +47,8 @@
                                     <img src="{{Storage::url($book->cover_image)}}" class="w-20 h-30 object-cover mx-auto">
                                     </td>
                                     <td class="px-4 py-2">{{ $book->title }}</td>
+                                    <td class="px-4 py-2">{{ $book->category->name_category}}</td  >
+                                    <td class="px-4 py-2">{{ $book->stock }}</td>
                                     <td class="px-4 py-2">Rp {{ number_format($book->price, 0, ',', '.') }}</td>
                                     <td class="px-4 py-2">{{ $book->author }}</td>
                                     <td class="px-4 py-2">
