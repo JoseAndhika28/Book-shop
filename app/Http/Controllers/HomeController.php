@@ -19,4 +19,9 @@ class HomeController extends Controller
     $categories = Category::all();
     return view('user.home', compact('categories')); // sesuaikan nama view-mu
 }
+
+    public function about()
+    {
+        return view('user.about');
+    }
 }

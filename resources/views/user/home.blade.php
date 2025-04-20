@@ -43,14 +43,14 @@
                     </div>
                   @endif
                   <div class="p-4">
-                    <h2 class="text-lg font-semibold">{{ $book->title }}</h2>
+                    <h2 class="text-lg font-bold">{{ $book->title }}</h2>
                     <p class="text-sm text-gray-600 mb-2">{{ Str::limit($book->author, 80) }}</p>
                     <p class="text-sm text-gray-500 mb-2">Stock : {{ Str::limit($book->stock, 80) }}</p>
-                    <p class="text-blue-600 font-bold mb-3">Rp {{ number_format($book->price, 0, ',', '.') }}</p>
+                    <p class="text-black-600 text-lg font-semibold mb-3">Rp {{ number_format($book->price, 0, ',', '.') }}</p>
                     <form action="{{ route('cart.add', $book->id) }}" method="GET">
                         @csrf
-                        {{-- <button type="submit" class="bg-blue-500 text-white px-3 py-1 rounded">Beli</button> --}}
-                        <button type="submit" class="bg-green-700 text-white px-3 py-1 rounded">Keranjang</button>
+                        <button type="submit" class="border border-blue-500 font-semibold text-blue-500 px-3 py-1 rounded">Beli Langsung</button>
+                        <button type="submit" class="bg-green-700 hover:bg-green-800 font-semibold text-white px-3 py-1 rounded"><i class="bi bi-plus"></i>Keranjang</button>
                     </form>
                 </div>
                 </div>

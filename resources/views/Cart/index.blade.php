@@ -1,7 +1,7 @@
 @extends('layout.navbar')
-
+    <title>Book Shop</title>
 @section('container')
-    <div class="container mx-auto mt-20 px-4">
+    <div class="container mx-auto grid grid-cols-2 gap-4 mt-20 px-4">
         <div class="w-full">
             <div class="bg-white shadow-md rounded-lg">
                 <div class="px-6 py-4 border-b flex justify-between items-center">
@@ -39,8 +39,8 @@
                                         </th>
                                         <th class="p-3">Cover</th>
                                         <th class="p-3">Title</th>
-                                        <th class="p-3">Quantity</th>
                                         <th class="p-3">Price</th>
+                                        <th class="p-3">Quantity</th>   
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -55,9 +55,8 @@
                                                     alt="{{ $cart->book->title }}" class="w-16 h-24 object-cover rounded">
                                             </td>
                                             <td class="p-3">{{ $cart->book->title }}</td>
-                                            <td class="p-3">{{ $cart->quantity }}</td>
                                             <td class="p-3">Rp{{ number_format($cart->book->price, 0, ',', '.') }}</td>
-                                            {{-- <td class="p-3">Rp{{ number_format($cart->subtotal_price, 0, ',', '.') }} --}}
+                                            <td class="p-3">{{ $cart->quantity }}</td>
                                             </td>
                                         </tr>
                                     @empty
@@ -69,7 +68,7 @@
                             </table>
                         </div>
 
-                        <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {{-- <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div class="bg-gray-50 p-4 rounded-lg shadow">
                                 <label for="shipping" class="block font-semibold mb-2">Shipping Method</label>
                                 <select name="shipping" id="shipping"
@@ -81,17 +80,20 @@
                                         </option>
                                     @endforeach
                                 </select>
-                            </div>
-                            <div class="bg-gray-50 p-4 rounded-lg shadow">
-                                <h5 class="text-lg font-semibold mb-2">Total Price: <span id="total-price">Rp. 0</span></h5>
-                                <button type="submit"
-                                    class="w-full bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">
-                                    Checkout <i class="bi bi-cart-check"></i>
-                                </button>
-                            </div>
+                            </div> --}}
                         </div>
                     </form>
                 </div>
+            </div>
+            <div class="bg-white p-4 h-64 rounded-lg shadow">
+                <div class="mb-4"> 
+                    <h1 class="text-xl font-bold">Ringkasan Belanja</h1>
+                </div>
+                <h5 class="text-lg font-semibold mb-2 text-gray-600">Total Price: <span id="total-price">Rp. 0</span></h5>
+                <button type="submit"
+                    class="w-full bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded">
+                    Checkout <i class="bi bi-cart-check"></i>
+                </button>
             </div>
         </div>
     </div>

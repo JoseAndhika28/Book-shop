@@ -21,32 +21,33 @@
             <ul class="flex space-x-6 justify-center items-center font-semibold">
                 <li>
                     <form action="/search" method="GET" class="hidden md:flex items-center ml-4">
-                        <input
-                          type="text"
-                          name="query"
-                          placeholder="Search..."
-                          class="px-3 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                      </form>
+                        <input type="text" name="query" placeholder="Search..."
+                            class="px-3 py-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                    </form>
+
+                    
+
                 </li>
 
                 @auth
                     <!--Menu Admin-->
                     @if (auth()->user()->roles == 'admin')
-                    <li><a href="{{ route('admin.dashboard') }}" class="hover:text-gray-300">Dashboard</a></li>
-                    <li><a href="{{ route('category.dashboard') }}" class="hover:text-gray-300">Categories</a></li>
-                    {{-- <li><a href="{{ route('admin.confirm') }}" class="hover:text-gray-300">Confirm</a></li> --}}
+                        <li><a href="{{ route('admin.dashboard') }}" class="hover:text-gray-300">Dashboard</a></li>
+                        <li><a href="{{ route('category.dashboard') }}" class="hover:text-gray-300">Categories</a></li>
+                        {{-- <li><a href="{{ route('admin.confirm') }}" class="hover:text-gray-300">Confirm</a></li> --}}
                     @else
                         <!--Menu User-->
                         <li><a href="{{ route('home') }}" class="hover:text-gray-300">Home</a></li>
-                        <li><a href="{{ route('home') }}" class="hover:text-gray-300">About us</a></li>
+                        <li><a href="{{ route('about') }}" class="hover:text-gray-300">About us</a></li>
                         <li><a href="{{ route('home') }}" class="hover:text-gray-300">Contact</a></li>
-                        <li class="text-white bg-blue-500 px-3 py-1 rounded-2xl hover:bg-blue-600 duration-300"><a href="{{ route('cart.index') }}" class=""><i class="bi bi-cart"></i> Cart</a></li>
-                        @endif
-                    <li class="bg-red-500 px-3 py-1 rounded-2xl hover:bg-red-600 duration-300">
+                        <li class="text-white bg-green-700 px-3 py-1 rounded-md hover:bg-green-800 duration-300"><a
+                                href="{{ route('cart.index') }}" class=""><i class="bi bi-cart"></i></a></li>
+                    @endif
+                    <li class="bg-red-500 px-3 py-1 rounded-md hover:bg-red-600 duration-300">
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button type="submit" class="text-md text-white"><i class="bi bi-box-arrow-left"></i> Logout</button>
+                            <button type="submit" class="text-md text-white"><i class="bi bi-box-arrow-left"></i>
+                                Logout</button>
                         </form>
                     </li>
                 @endauth
@@ -58,6 +59,12 @@
     <div class="container mx-auto mt-4">
         @yield('container')
     </div>
-</body>
 
+        <!-- Footer -->
+        <footer class="text-white py-3 mt-5">
+            <div class="mt-8 border-t border-gray-700 pt-4 text-center text-black">
+              &copy; 2025 Jose Andhika Putra.
+            </div>
+        </footer>
+</body>
 </html>

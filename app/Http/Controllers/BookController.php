@@ -113,4 +113,15 @@ class BookController extends Controller
         $books = Book::where('category_id', $id)->get();
         return view('books.index', compact('books', 'category'));
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $books = Book::where('title', 'LIKE', "%$search%")
+            ->orWhere('author', 'LIKE', "%$search%")
+            ->orWhere('publisher', 'LIKE', "%$search%")
+            ->get();
+            
+        return view('books.index', compact('books'));
+    }
 }

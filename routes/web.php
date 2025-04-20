@@ -51,8 +51,10 @@ Route::put('/books/{id}', [BookController::class, 'update'])->name('books.update
 Route::delete('/books/{book}', [BookController::class, 'destroy'])->name('books.destroy');
 Route::get('/books/{book}', [BookController::class, 'show'])->name('books.show'); // Route untuk menampilkan detail buku
 
+
 //User Routes
 Route::get('/home', [HomeController::class, 'home'])->name('home'); // Route untuk menampilkan halaman home
+Route::get('/about', [HomeController::class, 'about'])->name('about'); // Route untuk menampilkan halaman about
 
 //Cart Routes
 Route::get('/books/{id}/add-to-cart', [CartController::class, 'addToCart'])->name('cart.add'); // Route untuk menambahkan buku ke keranjang
@@ -61,7 +63,4 @@ Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.c
 Route::delete('/cart', [CartController::class, 'deleteSelected'])->name('cart.delete'); // Route untuk menghapus item dari keranjang
 
 //Order
-Route::get('/orders', [OrderController::class, 'index'])->name('orders.index'); // Route untuk menampilkan daftar pesanan
-// Route::get('/admin/orders', [OrderController::class, 'adminIndex'])->name('admin.orders.index');
-// Route::post('/admin/orders/{order}/confirm', [OrderController::class, 'confirm'])->name('admin.orders.confirm');
 
